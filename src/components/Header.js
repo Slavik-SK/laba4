@@ -1,15 +1,24 @@
-// src/components/Header.js
 import React from 'react';
-import { AppBar, Toolbar, Typography } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 
-// Компонент шапки сайта
-const Header = ({ title }) => {
+const Header = ({ title, children }) => {
   return (
-    <AppBar position="static">
-      <Toolbar>
-        <Typography variant="h5">{title}</Typography>
-      </Toolbar>
-    </AppBar>
+    <Box 
+      component="header" 
+      sx={{
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        p: 2,
+        backgroundColor: 'primary.main',
+        color: 'primary.contrastText',
+      }}
+    >
+      <Typography variant="h6">{title}</Typography>
+      <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+        {children}
+      </Box>
+    </Box>
   );
 };
 
